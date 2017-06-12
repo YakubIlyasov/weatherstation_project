@@ -1,0 +1,53 @@
+{% extends "template_parent.html" %}
+{% block title %}
+    Light
+{% endblock %}
+
+{% block link %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="air_quality">Air quality</a></li>
+                <li><a href="humidity">Humidity</a></li>
+                <li><a href="light" class="current">Light</a></li>
+                <li><a href="temperature">Temperature</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Light</h1>
+        <div>
+            <canvas id="line-chart" width="800" height="450"></canvas>
+        </div>
+        <script>
+            var line_chart = new Chart(document.getElementById("line-chart").getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: [{% for item in time %}
+                        "{{ item }}",
+                    {% endfor %}],
+                    datasets: [{
+                        data: [{% for item in values %}
+                            "{{ item }}",
+                        {% endfor %}],
+                        label: "Light",
+                        borderColor: "#E44B00",
+                        fill: false
+                    }]
+                },
+                responsive: false,
+                maintainAspectRation: false
+            });
+        </script>
+    </section>
+
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+{% endblock %}

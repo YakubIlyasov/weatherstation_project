@@ -1,0 +1,46 @@
+{% extends "template_parent.html" %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block link %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="center">
+    <div class="container">
+        <div class="gallery">
+            <a href="air_quality">
+                <img src="../static/images/air_quality.jpg" alt="Picture of air quality">
+                <div class="desc">Air quality</div>
+            </a>
+        </div>
+
+        <div class="gallery">
+            <a href="humidity">
+                <img src="../static/images/humidity.jpg" alt="Picture of humidity">
+                <div class="desc">Humidity</div>
+            </a>
+        </div>
+
+        <div class="gallery">
+            <a href="light">
+                <img src="../static/images/light.jpg" alt="Picture of light">
+                <div class="desc">Light</div>
+            </a>
+        </div>
+
+        <div class="gallery">
+            <a href="temperature">
+                <img src="../static/images/temperature.jpg" alt="Picture of temperature">
+                <div class="desc">Temperature</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% endblock %}
