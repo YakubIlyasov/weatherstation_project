@@ -65,7 +65,7 @@ def send_data_to_database():  # send measurements to database
 try:  # main programme
     # create objects
     local_time = time_local_time.time_local_time()  # create time object
-    analog_sensor = MCP.SPI()  # analog sensor object
+    analog_sensor = MCP.SPI()  # create analog sensor object
     digital_sensor = HDC1080.HDC1080()  # create digital sensor object
     database_weatherstation = Database_class.Database_class()  # create database object
     lcd = LCD.LCD(pin_rs, pin_rw, pin_e, pin_d7, pin_d6, pin_d5, pin_d4, 0, 0, 0, 0)  # create lcd object
