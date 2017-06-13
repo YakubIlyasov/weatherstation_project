@@ -79,9 +79,9 @@ try:  # main programme
             database_weatherstation.truncate_table("weatherstation")  # delete data in database from this table
 
         # get sensor values
-        air_quality = MCP.Analog.value_to_percentage(MCP.Analog.value_to_voltage(analog_sensor.readChannel(0), 1023, 3.3), 3.3)
+        air_quality = MCP.Analog.value_to_percentage(MCP.Analog.value_to_voltage(analog_sensor.readChannel(0), 1023, 5.0), 5.0)
         humidity = digital_sensor.read_humidity()
-        light = MCP.Analog.value_to_percentage(MCP.Analog.value_to_voltage(analog_sensor.readChannel(1), 1023, 3.3), 3.3)
+        light = MCP.Analog.value_to_percentage(MCP.Analog.value_to_voltage(analog_sensor.readChannel(1), 1023, 5.0), 5.0)
         temperature = digital_sensor.read_temperature()
 
         # add value to list with measurements from sensor
