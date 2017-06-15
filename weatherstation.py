@@ -73,11 +73,6 @@ try:  # main programme
     time_now = time_local_time.time_local_time().get_local_time()  # get time
 
     while True:  # main loop
-        # check date to delete data in database from yesterday
-        if str(datetime.now())[0:11] != time_local_time.time_local_time().get_local_date():
-            database_weatherstation.truncate_table("measurement")  # delete data in database from this table
-            database_weatherstation.truncate_table("weatherstation")  # delete data in database from this table
-
         # get sensor values
         air_quality = MCP.Analog.value_to_percentage(MCP.Analog.value_to_voltage(analog_sensor.readChannel(0), 1023, 5.0), 5.0)
         humidity = digital_sensor.read_humidity()
